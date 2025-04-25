@@ -1,0 +1,2 @@
+1)le variabili tryX tryY servono a provare se il personaggio si muove sull'asse x e y 
+2)sono state introdotte per verificare che il movimento del pg funzioni correttamente
