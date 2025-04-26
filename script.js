@@ -1,15 +1,20 @@
 function startGame() {
   myGameArea.start();
-  ninjaObject.loadImages();
-  console.log(bushObject);
-  bushObject.loadImages();
+  Mario.loadImages();
+  console.log(piattaforma);
+  piattaforma.loadImages();
+  console.log(piattaforma2);
+  piattaforma2.loadImages();
+  console.log(piattaforma3);
+  piattaforma3.loadImages();
+  piattaforma4.loadImages();
 }
 
 var myGameArea = {
   canvas: document.createElement("canvas"),
   start: function() {
-    this.canvas.width = 480;
-    this.canvas.height = 270;
+    this.canvas.width = 800;
+    this.canvas.height = 400;
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     this.interval = setInterval(updateGameArea, 20); //ogni 20 ms chiamo il metodo updateGameArea
@@ -42,28 +47,27 @@ var myGameArea = {
 
 function updateGameArea() {
   myGameArea.clear();
-  ninjaObject.update();
-  myGameArea.drawGameObject(ninjaObject);
-  myGameArea.drawGameObject(bushObject);
+  Mario.update();
+  myGameArea.drawGameObject(Mario);
+  myGameArea.drawGameObject(piattaforma);
+  myGameArea.drawGameObject(piattaforma2);
+  myGameArea.drawGameObject(piattaforma3);
+  myGameArea.drawGameObject(piattaforma4);
 }
 
 function moveup() {
-  ninjaObject.jump();
-}
-
-function movedown() {
-  ninjaObject.speedY = 2;
+  Mario.jump();
 }
 
 function moveleft() {
-  ninjaObject.speedX -= 2;
+  Mario.speedX -= 2;
 }
 
 function moveright() {
-  ninjaObject.speedX = 2;
+  Mario.speedX = 2;
 }
 
 function clearmove() {
-  ninjaObject.speedX = 0;
-  ninjaObject.speedY = 0;
+  Mario.speedX = 0;
+  Mario.speedY = 0;
 }
