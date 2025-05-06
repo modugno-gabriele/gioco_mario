@@ -1,13 +1,12 @@
 function startGame() {
   myGameArea.start();
   Mario.loadImages();
-  console.log(piattaforma);
   piattaforma.loadImages();
-  console.log(piattaforma2);
   piattaforma2.loadImages();
-  console.log(piattaforma3);
   piattaforma3.loadImages();
   piattaforma4.loadImages();
+  piattaforma5.loadImages();
+  oil.loadImages();
 }
 
 var myGameArea = {
@@ -18,16 +17,6 @@ var myGameArea = {
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     this.interval = setInterval(updateGameArea, 20); //ogni 20 ms chiamo il metodo updateGameArea
-  },
-
-  draw: function(component) {
-    this.context.fillStyle = component.color;
-    this.context.fillRect(
-      component.x,
-      component.y,
-      component.width,
-      component.height
-    );
   },
 
   drawGameObject: function(gameObject) {
@@ -53,21 +42,14 @@ function updateGameArea() {
   myGameArea.drawGameObject(piattaforma2);
   myGameArea.drawGameObject(piattaforma3);
   myGameArea.drawGameObject(piattaforma4);
+  myGameArea.drawGameObject(piattaforma5);
+  myGameArea.drawGameObject(oil);   
 }
 
-function moveup() {
-  Mario.jump();
-}
 
-function moveleft() {
-  Mario.speedX -= 2;
-}
 
-function moveright() {
-  Mario.speedX = 2;
-}
 
-function clearmove() {
-  Mario.speedX = 0;
-  Mario.speedY = 0;
-}
+
+
+
+

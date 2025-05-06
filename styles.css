@@ -1,21 +1,12 @@
 body {
-    background: blue;
+    background: black;
     text-align: center;
+    
   }
-div{
- text-align: center;
-
-}
-button{
-    border-radius: 20px;
-    background-color: brown;
-    height: 30px;
-    width: 130px;
-}
-
 
   canvas {
-    border: 3px whitesmoke;
+    border: 3px solid white;
     background-color: black;
     text-align: center;
+    
   }
