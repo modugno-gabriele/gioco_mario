@@ -1,8 +1,8 @@
 var piattaforma = {
-    width: 700,
+    width: 800,
     height: 30,
-    x: 100,
-    y: 380,
+    x: 0,
+    y: 570,
   
 
     loadImages: function() {
@@ -15,7 +15,7 @@ var piattaforma = {
     width: 700,
     height: 30,
     x: 0,
-    y: 300,
+    y: 460,
   
     loadImages: function() {
       this.image = new Image(this.width, this.height);
@@ -27,7 +27,7 @@ var piattaforma = {
     width: 700,
     height: 30,
     x: 100,
-    y: 220,
+    y: 340,
   
     loadImages: function() {
       this.image = new Image(this.width, this.height);
@@ -39,7 +39,7 @@ var piattaforma = {
     width: 700,
     height: 30,
     x: 0,
-    y: 140,
+    y: 220,
   
     loadImages: function() {
       this.image = new Image(this.width, this.height);
@@ -47,11 +47,11 @@ var piattaforma = {
     }
   };
 
-  var piattaforma5 = {
-    width: 150,
+    var piattaforma5 = {
+    width: 200,
     height: 30,
     x: 0,
-    y: 65,
+    y: 87,
   
     loadImages: function() {
       this.image = new Image(this.width, this.height);
@@ -60,16 +60,3 @@ var piattaforma = {
   };
 
 
-
-  const oil = {
-    width: 50,
-    height: 40,
-    x: 580,
-    y: 340,
-    
-
-    loadImages: function() {
-      this.image = new Image(this.width, this.height);
-      this.image.src = "https://i.ibb.co/vxqWPLck/gasolio.png";
-    }
-  };

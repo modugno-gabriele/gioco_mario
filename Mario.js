@@ -1,14 +1,14 @@
 document.addEventListener("keydown", function(event) {
   switch (event.key) {
-    case "w": // Salta
+    case "w": 
       if (!Mario.isJumping) {
         Mario.jump();
       }
       break;
-    case "a": // Muovi a sinistra
+    case "a": 
       Mario.speedX = -2;
       break;
-    case "d": // Muovi a destra
+    case "d": 
       Mario.speedX = 2;
       break;
   }
@@ -16,8 +16,8 @@ document.addEventListener("keydown", function(event) {
 
 document.addEventListener("keyup", function(event) {
   switch (event.key) {
-    case "a": // Ferma il movimento a sinistra
-    case "d": // Ferma il movimento a destra
+    case "a": 
+    case "d": 
       Mario.speedX = 0;
       break;
   }
@@ -29,13 +29,14 @@ var running = [
   "https://i.ibb.co/MyJMFjHX/Screenshot-2025-04-25-114031.png"
 ];
 
-var Mario = {
+
+const Mario = {
   speedX: 0,
   speedY: 0,
   width: 30,
   height: 30,
   x: 0,
-  y: 900,
+  y: 700,
   imageList: [],
   contaFrame: 0, //contatore
   actualFrame: 0, 
@@ -52,32 +53,29 @@ var Mario = {
     this.tryY = this.y + this.speedY + this.gravitySpeed;
     this.tryX = this.x + this.speedX;
 
-    // Array di tutte le piattaforme
+    
     var piattaforme = [piattaforma, piattaforma2, piattaforma3, piattaforma4, piattaforma5];
 
-    // Verifica collisioni verticali
+    
     let collisionVertical = false;
     for (let piattaforma of piattaforme) {
         if (
             this.tryY + this.height > piattaforma.y && // Mario sta cadendo sopra la piattaforma
             this.tryY < piattaforma.y + piattaforma.height && // Mario non è sotto la piattaforma
             this.x + this.width > piattaforma.x && // Mario è sopra la piattaforma (asse X)
-            this.x < piattaforma.x + piattaforma.width // Mario è sopra la piattaforma (asse X)
-        ) {
-            if (this.gravitySpeed > 0) {
-                // Collisione dall'alto: Mario atterra sulla piattaforma
-                collisionVertical = true;
-                this.y = piattaforma.y - this.height; // Posiziona Mario sopra la piattaforma
-                this.gravitySpeed = 0; // Ferma la caduta
-                this.isJumping = false; // Permetti a Mario di saltare di nuovo
-            } else if (this.gravitySpeed < 0) {
+            this.x < piattaforma.x + piattaforma.width) // Mario è sopra la piattaforma (asse X)
+        { if (this.gravitySpeed > 0) {
+              collisionVertical = true;
+              this.y = piattaforma.y - this.height; // Posiziona Mario sopra la piattaforma
+              this.gravitySpeed = 0; 
+              this.isJumping = false;}
+        else if (this.gravitySpeed < 0) {
                 // Collisione dal basso: Mario colpisce la parte inferiore della piattaforma
                 collisionVertical = true;
                 this.y = piattaforma.y + piattaforma.height; // Posiziona Mario sotto la piattaforma
-                this.gravitySpeed = 0; // Ferma il movimento verso l'alto
-            }
-            break;
-        }
+                this.gravitySpeed = 0;} // Ferma il movimento verso l'alto
+        break;}
+        
     }
 
     // Se non c'è collisione verticale, aggiorna la posizione verticale
@@ -88,12 +86,16 @@ var Mario = {
     // Aggiorna la posizione orizzontale (senza verificare collisioni orizzontali)
     this.x = this.tryX;
 
+    // Limita Mario ai confini della canvas
+    if (this.x < 0) this.x = 0;
+    if (this.x + this.width > 800) this.x = 800 - this.width;
+    if (this.y < 0) this.y = 0;
+
     this.hitBottom();
     this.contaFrame++;
 
-    // Cambia immagine solo se non sta saltando
     if (!this.isJumping) {
-        if (this.contaFrame >= 7) { // Cambia immagine ogni 7 frame
+        if (this.contaFrame >= 4) { 
             this.contaFrame = 0;
             this.actualFrame = (this.actualFrame + 1) % this.imageList.length;
             this.image = this.imageList[this.actualFrame];
@@ -102,12 +104,11 @@ var Mario = {
   },
 
   hitBottom: function() {
-    var rockbottom = 400 - this.height;
+    var rockbottom = 600 - this.height;
     if (this.y >= rockbottom) {
       this.y = rockbottom;
       this.gravitySpeed = 0;
 
-      // Ripristina lo stato di salto e l'immagine animata
       if (this.isJumping) {
         this.isJumping = false;
         this.image = this.imageList[this.actualFrame];
@@ -115,6 +116,7 @@ var Mario = {
     }
   },
 
+ /* 
   crashWith: function(otherobj) {
     var myleft = this.tryX;
     var myright = this.tryX + this.width;
@@ -125,20 +127,20 @@ var Mario = {
     var othertop = otherobj.y;
     var otherbottom = otherobj.y + otherobj.height;
 
-    // Verifica se c'è una collisione
+    
     if (
         mybottom > othertop &&
         mytop < otherbottom &&
         myright > otherleft &&
         myleft < otherright
     ) {
-        // Posiziona Mario sopra la piattaforma
+
         this.y = othertop - this.height;
-        this.gravitySpeed = 0; // Ferma la caduta
+        this.gravitySpeed = 0; 
         return true;
     }
     return false;
-  },
+  },*/
 
   loadImages: function() {
     this.image = new Image(this.width, this.height);
@@ -156,7 +158,6 @@ var Mario = {
     if (!this.isJumping) {
         this.gravitySpeed = -this.jumpForce;
 
-        // Cambia immagine quando salta
         this.isJumping = true;
         this.image.src = this.jumpImage;
     }

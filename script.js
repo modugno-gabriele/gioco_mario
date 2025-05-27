@@ -1,6 +1,7 @@
 function startGame() {
   myGameArea.start();
   Mario.loadImages();
+   DK.loadImages();
   piattaforma.loadImages();
   piattaforma2.loadImages();
   piattaforma3.loadImages();
@@ -13,7 +14,7 @@ var myGameArea = {
   canvas: document.createElement("canvas"),
   start: function() {
     this.canvas.width = 800;
-    this.canvas.height = 400;
+    this.canvas.height = 600;
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     this.interval = setInterval(updateGameArea, 20); //ogni 20 ms chiamo il metodo updateGameArea
@@ -37,7 +38,9 @@ var myGameArea = {
 function updateGameArea() {
   myGameArea.clear();
   Mario.update();
+  DK.update();
   myGameArea.drawGameObject(Mario);
+  myGameArea.drawGameObject(DK);   
   myGameArea.drawGameObject(piattaforma);
   myGameArea.drawGameObject(piattaforma2);
   myGameArea.drawGameObject(piattaforma3);

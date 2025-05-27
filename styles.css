@@ -1,12 +1,10 @@
 body {
-    background: black;
-    text-align: center;
-    
-  }
+  background-color: black;
+}
 
-  canvas {
-    border: 3px solid white;
-    background-color: black;
-    text-align: center;
-    
-  }
+#Canvas {
+  display: flex;
+  justify-content: center;
+  width: 1600px;
+  height: 800px;
+}
