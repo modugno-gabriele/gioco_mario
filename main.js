@@ -1,4 +1,4 @@
-import {Mario} from "./Classes/Mario.js" //serve per includere codice da un altro file
+import {Mario} from "./Classes/Mario.js" 
 import {DK} from "./Classes/DK.js"
 import {Barrel} from "./Classes/Barrel.js"
 import {piattaforma} from "./Classes/piattaforma.js"
@@ -14,7 +14,7 @@ let character = "Mario"
 let sprites = new Image()
 sprites.src = './mario_luigi_sprites2.png'
 
-let paused = false
+
 
 class Game {
     
@@ -29,7 +29,7 @@ class Game {
         this.choose = (event) => {
             if (event.key === "enter") {
                 character = "Mario"
-                ctx.clearRect(590, 400, 85, 30)
+                ctx.clearRect(200, 600, 85, 30)
                 ctx.fillStyle = "red"
                 ctx.fillText("Mario", 632, 420)
             } 
@@ -202,8 +202,7 @@ class Game {
     }
 
     showTitleScreen() {
-        // Clear canvas
-        ctx.clearRect(0, 0, this.width, this.height)
+        // Clear canvasctx.clearRect(0, 0, this.width, this.height)
 
         this.vite = 3
         this.resetGame()
@@ -212,13 +211,12 @@ class Game {
         img.src = './dk_title.png'
 
         img.onload = () => {
-            // Draw the title
             const x = (this.width - 700) / 2
             ctx.drawImage(img, x, 10, 700, 400)            
         }
         
         ctx.fillStyle = 'white'
-        ctx.font = '16px "Press Start 2P", Arial'
+        ctx.font = '20px "Press Start 2P", Arial'
         ctx.textAlign = "center"
         ctx.fillText("premi invio per iniziare", this.width / 2, 500)
        
@@ -242,11 +240,11 @@ class Game {
         ctx.textAlign = "center"
         ctx.fillText("Aiuta Mario a salvare la principessa!!! (premi invio per continuare)", this.width / 2, 200)
 
-        ctx.drawImage(sprites, 38, 17, 15, 18, 722, 300, 60, 90)
+        ctx.drawImage(sprites, 38, 17, 15, 18, 822, 300, 60, 90)
      
 
         ctx.fillStyle = 'red'
-        ctx.fillText("Mario", 752, 420)
+        ctx.fillText("Mario", 852, 420)
         
         document.addEventListener("keydown", this.choose)
 

@@ -4,7 +4,6 @@ const keys = {
     w: {
         pressed: false,
     },
-    
     a: {
         pressed: false,
     },
@@ -47,7 +46,7 @@ export class Mario {
         this.timeSinceLastFrameChange = 0
         this.timeBetweenFrames = 60
 
-        document.addEventListener("keydown", (e) => {
+        document.addEventListener("keydown", (e) => { //gestire input da tastiera
             switch(e.key) {
         
 
@@ -184,21 +183,16 @@ export class Mario {
     }
 
     collision(piattaforma) {
-        // Check if the bottom of Mario overlaps with the piattaforma
         if (!this.isClimbingDown && !(this.jumpHeight >= 750) &&
             (this.marioBottom > piattaforma.y && this.marioBottom - this.speed < piattaforma.y + 24 &&
             this.x + this.width - 7 > piattaforma.x && this.x < piattaforma.x + (piattaforma.w * 20) -50)) {
-            // Collision detected
             this.isJumping = false
             this.y = piattaforma.y - this.height
             this.force = 5
             this.speed = 0
         }
 
-        // Invisible wall
-        else if (this.y <= 86 && this.x < 500) {
-            this.x = 500
-        }
+ 
     }
 
     get marioMiddle() {

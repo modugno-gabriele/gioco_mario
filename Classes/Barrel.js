@@ -12,12 +12,10 @@ export class Barrel {
         this.force = 0.5
         this.left = false
         this.right = false
-        this.rollingLeft = [45, 30, 15, 0] //sprite frame
+        this.rollingLeft = [45, 30, 15, 0]
         this.rollingRight = [0, 15, 30, 45]
         this.rollingDown = [59, 78]
         this.loopIndex = 0
-        this.scored = false
-        this.hasScored = false
         this.scoreTimer = null
         this.scoreDelay = 800
         this.dead = false
@@ -141,28 +139,16 @@ export class Barrel {
     }
 
     collision(piattaforma, player) {
-        const playerLeft = player.x
+        const playerLeft = player.x //coordinate dei bordi
         const playerRight = player.x + player.width
         const playerTop = player.y
         const playerBottom = player.y + player.height
         const playerMiddle = (player.x + player.width) / 2
 
-        // Check if the bottom of the barrel overlaps with the piattaforma
         if (this.barrelBottom > piattaforma.y && this.barrelBottom - this.force < piattaforma.y + 24 &&
             this.x + this.width - 7 > piattaforma.x && this.x < piattaforma.x + (piattaforma.w * 20) - 40) {
-          // Collision detected
           this.y = piattaforma.y - this.height
         }
-
-        else if (!this.hasScored && player.isJumping && ((playerMiddle >= this.barrelMiddle - 2 && playerMiddle <= this.barrelMiddle + 2) && (playerBottom < this.y && playerBottom > this.y - 20))) {
-            this.scored = true
-            this.hasScored = true
-            this.scoreTimer = setTimeout(() => {
-                this.hasScored = false
-            }, this.scoreDelay)
-        }
-
-        /* Losing a life */
 
         else if (this.barrelLeft + 5 < playerRight &&
                  this.barrelRight - 5 > playerLeft &&

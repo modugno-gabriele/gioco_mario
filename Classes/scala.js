@@ -1,7 +1,7 @@
 let img = new Image() 
 img.src = './mario_and_luigi_sprites.png' 
 
-export class scala {  //esporto le scale
+export class scala {  
     constructor(x, y, h) {
         this.x = x
         this.y = y
@@ -15,7 +15,7 @@ export class scala {  //esporto le scale
         const spriteHeight = 9
         
         for (let i = 0; i < this.h; i++) {
-            const y = this.y - i * 15
+            const y = this.y - i * 15 
             ctx.drawImage(img, spriteX, spriteY, spriteWidth, spriteHeight, this.x, y, 38, 38)
         }
     }

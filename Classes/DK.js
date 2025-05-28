@@ -31,25 +31,24 @@ export class DK {
 	}
 
 	drawDK(ctx) {	
-		/* Stationary barrels */
+		
 		ctx.drawImage(img2, 59.5, 109, 15, 16, 150, 88, 50, 50)
 		ctx.drawImage(img2, 59.5, 109, 15, 16, 150, 40, 50, 50)
 		ctx.drawImage(img2, 59.5, 109, 15, 16, 195, 88, 50, 50)
 		ctx.drawImage(img2, 59.5, 109, 15, 16, 195, 40, 50, 50)
 
-		/* Pauline */
+		
 		ctx.drawImage(img2, 18, 243, 20, 22, 510, 5, 50, 50)
 	}
 
 
 
-	drawFrame(frameData) {
+	drawFrame(frameData) {  // Disegna il frame corrente
 		const x = frameData[0]
     	const width = frameData[1]
         this.sprites.drawSpriteDK(x, 50, width, 38, this.x, this.y, 140, 144)
 
         if (x == 280 && !this.hasThrown) {
-            // Start timer and set isThrowing to true
             this.isThrowing = true
             this.throwingTimer = setTimeout(() => {
                 this.isThrowing = false
