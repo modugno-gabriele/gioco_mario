@@ -14,7 +14,7 @@ export class sprites {
 
     drawSprite(spriteX, spriteY, spriteWidth, spriteHeight, canvasX, canvasY, canvasWidth, canvasHeight) {
         this.ctx.drawImage(img, spriteX, spriteY, spriteWidth, spriteHeight, canvasX, canvasY, canvasWidth, canvasHeight)
-    } //ritaglia uno sprite dall'immagine 
+    }  
 
     drawSpriteBarrel(spriteX, spriteY, spriteWidth, spriteHeight, canvasX, canvasY, canvasWidth, canvasHeight) {
         this.ctx.drawImage(img2, spriteX, spriteY, spriteWidth, spriteHeight, canvasX, canvasY, canvasWidth, canvasHeight)

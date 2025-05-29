@@ -8,7 +8,7 @@ export class scala {
         this.h = h 
     }
 
-    drawscala(ctx) { // disegna unsando le coordinate del sprite
+    drawscala(ctx) { 
         const spriteX = 130
         const spriteY = 151.5
         const spriteWidth = 10.5

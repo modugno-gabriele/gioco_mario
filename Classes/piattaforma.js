@@ -14,8 +14,8 @@ export class piattaforma {
         const spriteWidth = 9
         const spriteHeight = 8
         
-        for (let i = 0; i < this.w; i++) { //disegna tanti segmenti quanti specificati
-            const x = this.x + i * 15 // ogni blocco è spaziato di 15 pixel a destra del precedente.
+        for (let i = 0; i < this.w; i++) { 
+            const x = this.x + i * 15 
             ctx.drawImage(img, spriteX, spriteY, spriteWidth, spriteHeight, x, this.y, 20, 24)
         }
     }

@@ -116,7 +116,7 @@ export class Barrel {
         }
     }    
     
-    get barrelLeft() {
+    get barrelLeft() { //barilozzo bordo
         return this.x
     }
 
@@ -143,15 +143,15 @@ export class Barrel {
         const playerBottom = player.y + player.height
         const playerMiddle = (player.x + player.width) / 2
 
-        if (this.barrelBottom > piattaforma.y && this.barrelBottom - this.force < piattaforma.y + 24 &&
-            this.x + this.width - 7 > piattaforma.x && this.x < piattaforma.x + (piattaforma.w * 20) - 40) {
+        if (this.barrelBottom > piattaforma.y && this.barrelBottom - this.force < piattaforma.y + 24 && 
+            this.x + this.width - 1 > piattaforma.x && this.x < piattaforma.x + (piattaforma.w * 20) - 40) {
           this.y = piattaforma.y - this.height
         }
 
-        else if (this.barrelLeft + 5 < playerRight &&
-                 this.barrelRight - 5 > playerLeft &&
-                 this.barrelTop + 5 < playerBottom &&
-                 this.barrelBottom - 5 > playerTop) {
+        else if (this.barrelLeft + 2 < playerRight &&
+                 this.barrelRight - 2 > playerLeft &&
+                 this.barrelTop + 2 < playerBottom &&
+                 this.barrelBottom - 2 > playerTop) {
             this.dead = true
         }
     }

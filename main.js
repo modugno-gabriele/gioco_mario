@@ -113,7 +113,7 @@ class Game {
         ]
     }
 
-    draw(ctx) { //scorre l'array this.scala e this.piattaforme e disegna ogni oggetto
+    draw(ctx) { 
         for(const scala of this.scala) {
             scala.drawscala(ctx)
         }
@@ -128,7 +128,6 @@ class Game {
     }
 
     updateBarrels(elapsed) {
-        // Lancia un barile ogni 3 secondi
         if (this.dk.canThrow) {
             this.barrels.push(new Barrel(this.dk.x + 40, this.dk.y + 100, 30, 30))
             this.dk.canThrow = false
@@ -143,26 +142,10 @@ class Game {
         this.dk.update(ctx, elapsed)
     }
 
-    getPoints() {
-        for (let i = 0; i < this.barrels.length; i++) {
-            if (this.barrels[i].scored) {
-                this.score += 100
-                this.barrels[i].scored = false
-            }
-        }
-    }
-
-    drawPoints() {
-        ctx.fillStyle = 'white'
-        ctx.fillText(`Score: ${this.score}`, 90, 20)
-    }
-
     resetGame() {
-        // Reset player's position to the starting position
         this.mario.x = 200
         this.mario.y = 608
 
-        // Reset the barrels
         this.barrels = []
     }
 
@@ -195,15 +178,10 @@ class Game {
 
         else if (this.mario.y + this.mario.height == 57) {
             gameState = "title"
-            if (this.score > this.highScore) {
-                this.highScore = this.score
-            }
         }
     }
 
     showTitleScreen() {
-        // Clear canvasctx.clearRect(0, 0, this.width, this.height)
-
         this.vite = 3
         this.resetGame()
 
@@ -216,7 +194,7 @@ class Game {
         }
         
         ctx.fillStyle = 'white'
-        ctx.font = '20px "Press Start 2P", Arial'
+        ctx.font = '20px "premi invio per iniziare", Arial'
         ctx.textAlign = "center"
         ctx.fillText("premi invio per iniziare", this.width / 2, 500)
        

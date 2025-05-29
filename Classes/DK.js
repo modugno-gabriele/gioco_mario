@@ -19,12 +19,12 @@ export class DK {
             [280, 50]
         ]
         this.loopIndex = 0
-        this.throwInterval = 4000       // 3 secondi
+        this.throwInterval = 4000       
         this.throwTimer = 0             // Accumula il tempo passato  
         this.visible = false
         this.timeSinceLastFrameChange = 0
         this.timeBetweenFrames = 800
-        this.canThrow = false           // Inizia a false
+        this.canThrow = false           
     }
 
     drawDK(ctx) {	
@@ -32,10 +32,11 @@ export class DK {
         ctx.drawImage(img2, 59.5, 109, 15, 16, 150, 40, 50, 50)
         ctx.drawImage(img2, 59.5, 109, 15, 16, 195, 88, 50, 50)
         ctx.drawImage(img2, 59.5, 109, 15, 16, 195, 40, 50, 50)
+
         ctx.drawImage(img2, 18, 243, 20, 22, 510, 5, 50, 50)
     }
 
-    drawFrame(frameData) {  // Disegna il frame corrente
+    drawFrame(frameData) {  
         const x = frameData[0]
         const width = frameData[1]
         this.sprites.drawSpriteDK(x, 50, width, 38, this.x, this.y, 140, 144)
@@ -46,7 +47,7 @@ export class DK {
         this.throwTimer += elapsed
         if (this.throwTimer >= this.throwInterval) {
             this.throwTimer = 0
-            this.canThrow = true // Segnala che DK può lanciare un barile
+            this.canThrow = true 
         } else {
             this.canThrow = false
         }
@@ -65,6 +66,5 @@ export class DK {
     update(ctx, elapsed) {
         this.step(ctx, elapsed)
         this.drawDK(ctx)
-        this.drawHelp(ctx)
     }
 }

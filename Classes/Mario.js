@@ -46,7 +46,7 @@ export class Mario {
         this.timeSinceLastFrameChange = 0
         this.timeBetweenFrames = 60
 
-        document.addEventListener("keydown", (e) => { //gestire input da tastiera
+        document.addEventListener("keydown", (e) => { 
             switch(e.key) {
         
 
@@ -121,7 +121,7 @@ export class Mario {
 
 
 
-        // Jumping
+       
         if (this.isJumping) {
             
             if (this.movingLeft) {
@@ -144,20 +144,11 @@ export class Mario {
 
         // Running
         else if (!this.isJumping) {
-            
-            // Increase time since last frame change by elapsed time
             this.timeSinceLastFrameChange += elapsed
-
-            // If it's time for a new frame
             if (this.timeSinceLastFrameChange >= this.timeBetweenFrames) {
-
-                // Reset the timer
                 this.timeSinceLastFrameChange = 0
-
-                // Move to the next frame
                 this.loopIndex++
-
-                // If we've reached the end of the animation sequence, start over
+                
                 if (this.loopIndex >= this.loopRight.length) {
                     this.loopIndex = 0
                 }
