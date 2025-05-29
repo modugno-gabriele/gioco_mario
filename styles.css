@@ -2,9 +2,9 @@ body {
   background-color: black;
 }
 
-#Canvas {
+#Canvas { 
   display: flex;
   justify-content: center;
-  width: 1900px;
-  height: 900px;
+  width: 1610px; 
+  height: 705px;
 }

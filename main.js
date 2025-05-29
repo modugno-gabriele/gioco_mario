@@ -128,13 +128,13 @@ class Game {
     }
 
     updateBarrels(elapsed) {
-
-        if (this.dk.isThrowing && this.dk.canThrow) {
-            this.barrels.push(new Barrel(350, 90, 27, 38))
-            this.dk.canThrow = false // Impedisci lanciare più barili nello stesso ciclo
+        // Lancia un barile ogni 3 secondi
+        if (this.dk.canThrow) {
+            this.barrels.push(new Barrel(this.dk.x + 40, this.dk.y + 100, 30, 30))
+            this.dk.canThrow = false
         }
 
-        for(const barrel of this.barrels) { //	Aggiorna ogni barile (movimento, disegno, collisioni)
+        for(const barrel of this.barrels) {
             barrel.update(ctx, this.piattaforme, this.mario, elapsed)
         }
     }

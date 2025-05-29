@@ -16,8 +16,6 @@ export class Barrel {
         this.rollingRight = [0, 15, 30, 45]
         this.rollingDown = [59, 78]
         this.loopIndex = 0
-        this.scoreTimer = null
-        this.scoreDelay = 800
         this.dead = false
         this.timeSinceLastFrameChange = 0
         this.timeBetweenFrames = 100
