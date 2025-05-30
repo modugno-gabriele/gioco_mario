@@ -21,7 +21,6 @@ export class DK {
         this.loopIndex = 0
         this.throwInterval = 4000       
         this.throwTimer = 0             // Accumula il tempo passato  
-        this.visible = false
         this.timeSinceLastFrameChange = 0
         this.timeBetweenFrames = 800
         this.canThrow = false           
@@ -59,7 +58,7 @@ export class DK {
                 this.loopIndex = 0
             }
         }
-        const frameData = this.loop[this.loopIndex]
+        const frameData = this.loop[this.loopIndex] //fotogramma
         this.drawFrame(frameData)
     }
 

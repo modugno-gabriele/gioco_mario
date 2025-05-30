@@ -133,7 +133,7 @@ export class Mario {
             }
         }
 
-        // Standing
+        
         else if (this.facingLeft && !this.keys.a.pressed) {
             this.drawFrame(standLeft[0], standLeft[1])
         }
@@ -142,7 +142,7 @@ export class Mario {
             this.drawFrame(standRight[0], standRight[1])
         }
 
-        // Running
+        
         else if (!this.isJumping) {
             this.timeSinceLastFrameChange += elapsed
             if (this.timeSinceLastFrameChange >= this.timeBetweenFrames) {
@@ -195,7 +195,7 @@ export class Mario {
         let touchingscala = false
         let abovescala = false
 
-        // If Mario is touching a scala
+        
         if (this.marioMiddle >= scala.x && this.marioMiddle <= scalaEnd && (this.y <= scala.y && this.y >= scala.y - (scala.h * 10 + 70))) {
             this.currentscala = scala
             this.isClimbingDown = false
@@ -203,13 +203,13 @@ export class Mario {
             touchingscala = true
         }
 
-        // Mario is touching a scala and the w key is pressed
+       
         if (touchingscala == true && this.keys.w.pressed) {
             this.speed = 0
             this.y -= 0.2
         }
 
-        // Mario is touching a scala and the s key is pressed
+      
         else if (touchingscala == true && this.keys.s.pressed) {
             this.speed = 0
             this.y += 0.2
@@ -226,7 +226,7 @@ export class Mario {
             abovescala = true
         }
 
-        // Mario is above a scala and the s key is pressed
+        
         if (abovescala && this.keys.s.pressed) {
             this.isClimbingDown = true
         }
